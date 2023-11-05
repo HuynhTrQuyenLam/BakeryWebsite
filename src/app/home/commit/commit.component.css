@@ -1,0 +1,43 @@
+.commit {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 50px;
+    color: #000;
+  }
+
+  hr{
+    width: 25%;
+    padding-top: 0;
+    margin-top: 0;
+    border: none;
+    border-top: 2px solid #000000;
+    margin-bottom: 50px;
+  }
+  
+  .commit-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 40px;
+  }
+
+  .rectangle {
+    background-color: rgb(255, 238, 222);
+    color: white;
+    position: relative;
+    padding: 50px 5px;
+    margin: 30px 5px;
+    max-width: 260px; 
+    word-wrap: break-word;
+  }
+  
+  
+  .commit-text {
+    color: #000;
+    margin: 20px 15px 5px 15px;
+    font-size: 18px;
+  }
+  

@@ -1,0 +1,33 @@
+.category{
+  margin: 40px 0;
+}
+
+.description-t{
+    margin: 100px 0;
+    padding-left: 200px;
+    float: right;
+}
+
+.description-o{
+  margin: 100px 0;
+  padding-right: 200px;
+}
+
+.product-button {
+    background-color: rgb(255, 233, 212);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0;
+  }
+
+  .product-button:hover {
+    transform: scale(1.1);
+  }
+
+hr{
+    width: 30%;
+    border: none;
+    border-top: 2px solid #000000;
+    margin-left: 0;
+}
