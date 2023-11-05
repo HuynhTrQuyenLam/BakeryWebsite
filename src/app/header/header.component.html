@@ -1,0 +1,90 @@
+<header class="fixed-top" [ngClass]="{'transparent-bg': isHeaderInBannerArea()}">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="logo" href="#">
+        BAKERY<span>.</span>
+      </a>
+      <div class="navbar-collapse justify-content-center">
+        <ul class="navbar-nav">
+          <li class="nav-item" [class.active]="selectedOption === 'home' || selectedOption === 'about' || selectedOption === 'member' || selectedOption === 'contact'">
+            <a class="nav-link" href="#" (click)="selectOption('home')">Home</a>
+            <div class="horizontal-bar" [ngClass]="{'show': selectedOption === 'home' || isMovingBar}"></div>
+          </li>
+          <li class="nav-item" [class.active]="selectedOption === 'about'" #aboutSection>
+            <a class="nav-link" href="#" (click)="selectOption('about')">About Us</a>
+          </li>
+          <li class="nav-item" [class.active]="selectedOption === 'menu'">
+            <a class="nav-link" routerLink="/menu" (click)="selectOption('menu')">Menu</a>
+            <div class="horizontal-bar" [ngClass]="{'show': selectedOption === 'menu' && isMovingBar}"></div>
+          </li>       
+          <li class="nav-item" [class.active]="selectedOption === 'member'" #memberSection>
+            <a class="nav-link" href="#" (click)="selectOption('member')">Member</a>
+          </li>
+          <li class="nav-item" [class.active]="selectedOption === 'contact'" #contactSection>
+            <a class="nav-link" href="#" (click)="selectOption('contact')">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="ml-auto icon-container">
+        <button class="btn btn-light" (click)="toggleSearch()">
+          <img src="assets/images/magnifying-glass-o.png" alt="search" style="height: 25px;" />
+        </button>
+        <button class="btn btn-light" (click)="toggleProfile()">
+          <img src="assets/images/avatar.png" alt="profile" style="height: 25px;" />
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+    <!-- SEARCH-BOX -->
+    <div class="search-box" [ngClass]="{'open': isSearchOpen}" #searchBox>
+      <div class="triangle"></div>
+      <div class="search-box-content">
+        <p class="tittle">Search</p>
+        <hr>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchQuery" (input)="search()">
+          <div class="input-group-append">
+            <span class="input-group-text btn-search" (click)="search()">
+              <img src="assets/images/magnifying-glass.png" alt="cart" style="height: 20px;" />
+            </span>
+          </div>
+        </div>        
+
+        <!-- HIỆN KẾT QUẢ TÌM KIẾM -->
+        <div *ngIf="displayedProducts.length > 0; else noResults">
+          <div *ngFor="let product of displayedProducts" class="product-card"
+          (mouseenter)="onMouseEnter(product.id)" 
+          (mouseleave)="onMouseLeave()">
+            <div class="d-flex align-items-center">
+              <img [src]="product.image" [alt]="product.name" class="product-img">
+              <div class="product-details">
+                <p class="product-name" (click)="goToProductDetail(product)">{{ product.title }}</p>
+                <p class="product-price">{{ product.price }}</p>
+              </div>
+            </div>
+            <button *ngIf="hoverProductId === product.id && showAddToCartButton" class="add-to-cart-button" (click)="addToCart(product)">Add to cart</button>
+          </div>
+        </div>
+        <ng-template #noResults>
+          <p class="no-results">No search results.</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- PROFILE-BOX -->
+    <div class="profile-box" [ngClass]="{'open': isProfileOpen}" #profileBox>
+      <div class="triangle"></div>
+      <div class="profile-box-content">
+        <p class="tittle">Profile</p>
+        <hr>
+        <button *ngIf="!isLoginVisible && !isUserLoggedIn" class="login-button" (click)="goToLogin()">LOGIN</button>
+        <button *ngIf="!isRegisterVisible && !isUserLoggedIn" class="register-button" (click)="goToRegister()">REGISTER</button>
+        <button *ngIf="isUserLoggedIn" class="logout-button" (click)="logout()">LOGOUT</button>
+        <button *ngIf="isUserLoggedIn" class="register-button" (click)="handleOrderList()">ORDER LIST</button>
+      </div>
+    </div>
+</header>
+  
+  
