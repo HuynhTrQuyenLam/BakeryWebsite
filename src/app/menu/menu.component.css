@@ -1,0 +1,352 @@
+.container-fluid {
+    padding: 50px 100px;
+  }
+
+  .img-filter{
+    height: 25px;
+    width: 25px;
+    margin: 10px;
+  }
+
+  .menu-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+  }
+
+  .menu-buttons button {
+    border: none;
+    background: none;
+    outline: none; 
+  }
+  
+  .menu-buttons button.active {
+    border: 2px solid brown;
+    border-radius: 5px;
+  }
+
+.filter-section {
+    padding:20px;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+  }
+  
+  .title {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  
+  .category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin-bottom: 10px;
+  }
+  
+  .category-item input[type="checkbox"] {
+    cursor: pointer;
+    width: 20px;
+    height: 20px; 
+  }
+  
+  .category-item input[type="checkbox"] + label {
+    cursor: pointer;
+    padding-left: 5px; 
+    position: relative;
+  }
+  
+  .category-item input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    right: 100%; 
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+  }
+  
+  .category-item input[type="checkbox"]:checked + label:before {
+    background-color: rgb(255, 235, 185); 
+    border-color: rgb(255, 235, 185); 
+  }
+  
+  
+  .price-range {
+    width: 100%;
+    position: relative;
+  }
+  
+  .price-range input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    background: linear-gradient(to right, #cba057, #744004);
+    border-radius: 10px;
+    height: 6px; /* Chiều cao của đường giới hạn */
+  }
+  
+  .price-range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 13px; 
+    height: 13px; 
+    border-radius: 50%;
+    background-color: #392100;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .price-range input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+  }
+  
+  .price-range input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #007bff;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .price-range input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 6px; 
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+  }
+  
+  .price-range input[type="range"]:focus {
+    outline: none;
+  }
+  
+  .price-range .price-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .product-list .card {
+    width: 100%;
+    height: 300px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 25px 25px;
+  }
+  
+  
+  .product-list-2 .card {
+    width: calc(50% - 55px);
+    height: 600px;
+  }
+  
+  .product-list-3 .card {
+    width: calc(33.3333% - 55px);
+    height: 400px;
+  }
+  
+  .product-list-4 .card {
+    width: calc(25% - 50px);
+    height: 300px;
+  }
+  
+  .card-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+   
+
+/* Khung TÊN và GIÁ sản phẩm */
+  .card-info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(1, 1, 1, 0.607);
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    opacity: 0;
+  }
+
+  .card:hover .card-info{
+    opacity: 1;
+  }
+
+  .card-info hr{
+    margin: 0 auto;
+    width: 80%;
+    border: none;
+    border-top: 1px solid #ffffff;
+  }
+  
+  .card-title {
+    font-size: 15px;
+    margin: 10px;
+    border-top: #fff;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  .card-price {
+    font-size: 15px;
+    color: #fff;
+    margin: 5px 0;
+  }
+  
+
+/* Hình tròn ADD TO CART và DETAIL trong card SP */
+.overlay-container{
+  top: 5%;
+  right: 10px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Canh phải */
+}
+
+.heart-icon {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.816);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  transition: width 0.3s ease;
+  cursor: pointer;
+  margin: 5px 0 30px 0;
+}
+
+.card:hover .heart-icon {
+  display: block;
+}
+
+.heart-icon img {
+  width: 25px;
+  height: 25px;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  right: 10px;
+}
+
+
+.overlay {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.816);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  transition: width 0.3s ease;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.overlay img.cart-icon {
+  width: 25px;
+  height: 25px;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  right: 13px;
+}
+
+.text {
+  font-size: 14px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  border-radius: 10px;
+  white-space: nowrap;
+  margin: 0 10px;
+  right: 40px;
+  text-decoration: none;
+}
+
+.overlay:hover {
+  width: 150px;
+}
+
+.overlay:hover .text {
+  opacity: 0;
+}
+
+.overlay:hover .text {
+  opacity: 1;
+}
+ /*  */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pagination button.active {
+  background-color: brown;
+  color: white;
+  border-radius: 5px;
+}
+
+  
