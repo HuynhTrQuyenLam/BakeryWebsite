@@ -1,0 +1,29 @@
+<div class="product-details">
+    <h2 class="product-name">{{ selectedProduct?.title }}</h2>
+    <div class="rating">
+        <span *ngFor="let star of getRatingStars(selectedProduct?.rating); let i = index">
+          <span class="star" *ngIf="star === 1">&#9733;</span>
+          <span class="half-star" *ngIf="star === 0.5">&#9733;</span>
+          <span class="empty-star" *ngIf="star === 0">&#9733;</span>
+        </span>
+      </div>
+    <p> {{ selectedProduct?.price }} đ</p>
+    <div class="quantity-container">
+        <button (click)="decreaseQuantity()">-</button>
+        <div class="quantity-input">
+          <input type="number" id="quantity" [(ngModel)]="quantity" min="1" max="100">
+        </div>
+        <button (click)="increaseQuantity()">+</button>
+      </div>
+    <button class="add-to-cart-button" (mouseenter)="addButtonHovered=true" (mouseleave)="addButtonHovered=false"
+      [ngClass]="{'hovered': addButtonHovered}" (click)="addToCart()">ADD TO CART</button>
+    <button class="add-to-favorites-button" (click)="addToFavorites()">ADD TO FAVORITES</button>
+
+    <div class="note">
+        <p><span style="color: black; font-weight: 500;">Note: </span>Our bakers will carefully select the finest quality ingredients daily to ensure freshness in your products.</p>
+        <p>We will begin fulfilling your order immediately upon receiving it to deliver the most delicious cakes.</p>
+        <p>Preparation time: 50 minutes ~ 90 minutes.</p>
+    </div>
+
+  </div>
+  
