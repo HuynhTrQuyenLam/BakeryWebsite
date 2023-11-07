@@ -1,0 +1,62 @@
+<div class="inf-cmt">
+  <div class="header">
+    <div class="option" [class.selected]="selectedTab === 'productInfo'"
+      (click)="showContent('productInfo')">Product information</div>
+    <div class="option" [class.selected]="selectedTab === 'comment'"
+      (click)="showContent('comment')">Comment</div>
+
+  </div>
+  <hr/>
+    <div style="padding: 10px 25px;">
+      <div id="productInfoContent" class="content" [hidden]="selectedTab !==
+      'productInfo'">
+        <h5>Description</h5>
+        <p> {{ selectedProduct?.description }} </p>
+        <h5>Ingredients</h5>
+        <p> {{ selectedProduct?.ingredients }} </p>
+      </div>
+      <div id="commentContent" class="content" [hidden]="selectedTab !==
+      'comment'">
+        <div class="rating">
+          <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+          <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+          <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+          <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+          <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+        </div>
+        <div class="row d-flex justify-content-between">
+          <div class="col-md-10">
+            <div class="form-group">
+              <textarea type="text" class="form-control" id="firstName" placeholder="Comment"></textarea>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-primary" style="width: 100%; margin:0">Comment</button>
+          </div>
+        </div>
+
+        <h5>Other comment</h5>
+        <div class="container-fluid">
+          <div class="row d-flex">
+            <div class="order-card" >
+              <div class="order-header">
+                <h5>Nguyen Hoang</h5>
+                <span class="order-info">July 28, 2023</span>
+              </div>
+              <div class="order-details">
+                <div class="rating-cmt">
+                  <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                  <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                  <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                  <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                  <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                </div>
+                <p>Very delicious</p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
