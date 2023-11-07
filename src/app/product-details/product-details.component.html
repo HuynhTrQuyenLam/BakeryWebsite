@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <app-product-image [images]="selectedProduct?.images"></app-product-image>
+    </div>
+    <div class="col-md-6">
+      <app-details [selectedProduct]="selectedProduct"></app-details>
+    </div>
+  </div>
+    <app-product-info-cmt [selectedProduct]="selectedProduct"></app-product-info-cmt>
+</div>
+<div class="container-fluid">
+    <app-related-products [selectedProduct]="selectedProduct"></app-related-products>
+</div>
+
+
