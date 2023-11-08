@@ -1,0 +1,29 @@
+<div class="register-container">
+  <img class="background-image" src="assets/images/background.png" alt="Background">
+  <div class="content">
+    <a class="logo" href="#">
+      BAKERY<span>.</span>
+    </a>
+    <div class="input-container">
+      <input type="text" placeholder="Username" [(ngModel)]="username">
+    </div>
+    <div class="input-container">
+      <input type="text" placeholder="Email" [(ngModel)]="email">
+    </div>
+    <div class="input-container">
+      <input type="password" placeholder="Password" [(ngModel)]="password">
+    </div>
+    <div class="input-container">
+      <input type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword">
+    </div>
+
+    <button class="register-button" (click)="register()">REGISTER</button>
+
+    <div class="icon-container">
+      <img class="icon" src="assets/images/facebook-x.png" alt="Facebook">
+      <img class="icon" src="assets/images/google-d.png" alt="Google">
+    </div>
+
+    <p class="register-text">Have an account? <a (click)="goToLogin()">LOGIN</a></p>
+  </div>
+</div>
