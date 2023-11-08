@@ -1,0 +1,104 @@
+.login-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .logo{
+    font-size: 3.2rem;
+    color: #472300;
+    font-weight: bolder;
+    font-family: 'Prompt', sans-serif;
+    outline: none; border: none;
+    text-decoration: none;
+    margin-bottom: 50px;
+    display: inline-block;
+  }
+  
+  .logo span{
+    color: #ff8d41;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+  }
+  
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .input-container {
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  input {
+    width: 450px;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .forgot-password-link {
+    position: absolute;
+    bottom: -25px;
+    right: 0;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .login-button {
+    padding: 10px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #8B4513;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px 40px;
+    margin-top: 30px;
+  }
+  
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .icon {
+    width: 35px;
+    height: 35px;
+    margin: 0 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .login-text {
+    display: block;
+    margin-top: 30px;
+    color: #000;
+    cursor: pointer;
+  }
+
+  .login-text a{
+    font-weight: bold;
+    color: #472300;
+  }
