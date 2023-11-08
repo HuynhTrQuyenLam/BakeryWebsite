@@ -1,0 +1,25 @@
+<div class="login-container">
+  <img class="background-image" src="assets/images/background.png" alt="Background">
+  <div class="content">
+    <a class="logo" href="#">
+      BAKERY<span>.</span>
+    </a>
+
+    <div class="input-container">
+      <input type="text" placeholder="Email" [(ngModel)]="email">
+    </div>
+    <div class="input-container">
+      <input type="password" placeholder="Password" [(ngModel)]="password">
+      <a class="forgot-password-link" href="#">Forgot password?</a>
+    </div>
+
+    <button class="login-button" (click)="login()">LOGIN</button>
+
+    <div class="icon-container">
+      <img class="icon" src="assets/images/facebook-x.png" alt="Facebook">
+      <img class="icon" src="assets/images/google-d.png" alt="Google">
+    </div>
+
+    <p class="login-text">Don't have an account? <a (click)="goToRegister()">REGISTER</a></p>
+  </div>
+</div>
