@@ -1,0 +1,33 @@
+<div class="sidebar" [ngClass]="{ 'open': isOpen }">
+    <div class="sidebar-content">
+      <img src="assets/images/cancel.png" alt="Close" (click)="onClose()" class="close-icon">
+    </div>
+    <div class="d-flex align-items-center">
+      <img src="assets/images/shopping.png" alt="cart" class="img-icon"/>
+      <p class="title m-0 ml-2">Cart</p>
+    </div>
+    <a routerLink="/cart" class="gt-favor"><p>Go to cart page</p></a>
+    <hr/>
+
+    <button class="delete-all" (click)="onDeleteAll()">Delete All</button>
+    <!-- Products List -->
+    <div class="product-list">
+      <div *ngFor="let product of products" class="product-card" 
+          (mouseenter)="onMouseEnter(product.id)" 
+          (mouseleave)="onMouseLeave()">
+        <div class="d-flex align-items-center">
+          <img src="{{ product.images[0] }}" alt="{{ product.name }}" class="product-img">
+          <div class="product-details">
+            <p class="product-name">{{ product.title }}</p>
+            <p class="product-price">{{ product.price }}</p>
+          </div>
+          <img src="assets/images/more.png" alt="Delete" class="delete-icon" (click)="onClickDeleteIcon(product.id)">
+          <div [ngClass]="{ 'delete-popup': true, 'show': showDeletePopup && selectedProductId === product.id }">
+            <p class="delete-text" (click)="onDeleteProduct()">Delete</p>
+          </div>
+        </div>
+        <!-- <button *ngIf="showAddToCartButton && hoverProductId === product.id" class="add-to-cart-button">Add to cart</button> -->
+      </div>
+    </div>
+</div>
+  
