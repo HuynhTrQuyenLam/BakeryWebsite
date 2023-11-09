@@ -1,0 +1,38 @@
+<div class="container">
+    <h2 class="cart-title">Your Cart</h2>
+    <div class="cart-table">
+      <div class="cart-header">
+        <div class="col-md-6">PRODUCT</div>
+        <div class="col-md-1">PRICE</div>
+        <div class="col-md-4">QUANTITY</div>
+        <div class="col-md-1">TOTAL</div>
+      </div>
+      <div class="cart-row d-flex" *ngFor="let item of cartItems">
+        <div class="col-md-6">
+            <div class="product-container">
+                <img src="{{ item.images[0] }}" alt="{{ item.title }}" class="product-image">
+                <div class="product-name">{{ item.title }}</div>
+              </div>
+        </div> 
+        <div class="col-md-1">{{ item.price }}</div>
+        <div class="col-md-4" style="align-self: center;">
+            <div class="quantity-container">
+                <button (click)="decreaseQuantity(item)">-</button>
+                <div class="quantity-input">
+                  <input type="number" [(ngModel)]="item.quantity" (change)="updateTotal(item)" min="1" max="100">
+                </div>
+                <button (click)="increaseQuantity(item)">+</button>
+              </div>
+        </div>
+        <div class="col-md-1">{{ item.total }}</div>
+      </div>
+    </div>
+    <div class="cart-total">
+      <p>Total: {{ calculateTotal() }}</p>
+    </div>
+    <div style="right: 0;">
+        <button class="add-to-cart-button" (mouseenter)="addButtonHovered=true" (mouseleave)="addButtonHovered=false"
+                [ngClass]="{'hovered': addButtonHovered}" (click)="checkout()">CHECKOUT</button>
+    </div>
+  </div>
+  
