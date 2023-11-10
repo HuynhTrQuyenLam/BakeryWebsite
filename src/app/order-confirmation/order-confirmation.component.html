@@ -1,0 +1,14 @@
+<div class="order-confirmation">
+    <div class="order-confirmation-content">
+      <h2>Your Order Is Completed</h2>
+      <p>Thank you for your order. Please check your order in history.</p>
+      <div class="center-container">
+        <button class="back-to-home-button" (mouseenter)="addButtonHovered=true" (mouseleave)="addButtonHovered=false"
+            [ngClass]="{'hovered': addButtonHovered}" (click)="navigateToHome()">
+        <img src="assets/images/arrow.png" alt="Back to Home" class="arrow-icon" />
+        Back to Home
+        </button>
+      </div>
+    </div>
+  </div>
+  
