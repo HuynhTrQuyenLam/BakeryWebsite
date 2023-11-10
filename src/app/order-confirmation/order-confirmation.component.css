@@ -1,0 +1,86 @@
+.order-confirmation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .order-confirmation-content {
+    text-align: center;
+  }
+  
+  .order-confirmation-content h2 {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .order-confirmation-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: rgb(137, 137, 137);
+  }
+
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .arrow-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .back-to-home-button {
+    display: block;
+    width: 40%;
+    height: 50px;
+    margin: 35px 0;
+    background-color: #000;
+    border: 1px solid #ffffff;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; 
+    transition: background-color 0.5s, color 0.3s, border-color 0s;
+  }
+  
+  .back-to-home-button:hover {
+    background-color: transparent; 
+    color: #000;
+  }
+  
+  .back-to-home-button::before,
+  .back-to-home-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #000;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+  
+  .back-to-home-button::before {
+    left: 100%;
+  }
+  
+  .back-to-home-button:hover::before {
+    width: 100%;
+  }
+  
+  .back-to-home-button::after {
+    right: 100%; 
+  }
+  
+  .back-to-home-button:hover::after {
+    width: 100%;
+  }
+  
