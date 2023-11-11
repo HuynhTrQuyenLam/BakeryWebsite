@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="order-title">Order history</h2>
+    <div class="order-list">
+      <div class="order-card" *ngFor="let order of orders; let i = index">
+        <div class="order-header">
+          <span class="order-info"><strong>Order ID:</strong> {{ i + 1}}</span>
+          <span class="order-info">{{order.date}}</span>
+        </div>
+        <div class="order-details">
+          <p><strong>Name:</strong> {{ order.firstName + " " + order.lastName}}</p>
+          <p><strong>Phone:</strong> {{ order.phone }}</p>
+          <p><strong>Address:</strong> {{ order.address }}</p>
+          <p><strong>Total:</strong> {{ order.total}}</p>
+        </div>
+        <hr/>
+        <div class="order-footer">
+          <p class="delivered">Delivered</p>
+          <!-- <a class="detail" (click) = "goToOrderDetail()">See detail</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
