@@ -3,12 +3,11 @@
       <img src="assets/images/cancel.png" alt="Close" (click)="onClose()" class="close-icon">
     </div>
     <div class="d-flex align-items-center">
-      <img src="assets/images/shopping.png" alt="cart" class="img-icon"/>
-      <p class="title m-0 ml-2">Cart</p>
+      <img src="assets/images/love.png" alt="favorites" class="img-icon"/>
+      <p class="title m-0 ml-2">Favorites</p>
     </div>
-    <a routerLink="/cart" class="gt-favor"><p>Go to cart page</p></a>
+    <a routerLink="/favorites" class="gt-favor"><p>Go to favorites page</p></a>
     <hr/>
-
     <button class="delete-all" (click)="onDeleteAll()">Delete All</button>
     <!-- Products List -->
     <div class="product-list">
@@ -26,7 +25,7 @@
             <p class="delete-text" (click)="onDeleteProduct()">Delete</p>
           </div>
         </div>
-        <!-- <button *ngIf="showAddToCartButton && hoverProductId === product.id" class="add-to-cart-button">Add to cart</button> -->
+        <!-- <button *ngIf="showAddToCartButton && hoverProductId === product.id" class="buy-button">Buy it now</button> -->
       </div>
     </div>
 </div>
