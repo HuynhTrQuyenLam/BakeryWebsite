@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="menu-buttons-container">
+      <div class="menu-buttons">
+        <button (click)="setProductLayout(1)" [class.active]="selectedButton === 1"><img src="assets/images/menu2.png" alt="2" class="img-filter"/></button>
+        <button (click)="setProductLayout(2)" [class.active]="selectedButton === 2"><img src="assets/images/menu3.png" alt="3" class="img-filter"/></button>
+        <button (click)="setProductLayout(3)" [class.active]="selectedButton === 3"><img src="assets/images/menu4.png" alt="4" class="img-filter"/></button>
+      </div>
+    </div>
+    <hr/>
+    <div class="row ">
+      <div class="col-md-3">
+          <div class="filter-section">
+            <div class="form-group">
+              <label for="categoryFilter" class="title">Categories:</label>
+              <ul class="category-list">
+                <li class="category-item" *ngFor="let category of categories">
+                  <label for="{{ category }}">{{ category }}</label>
+                  <input type="checkbox" id="{{ category }}" [(ngModel)]="selectedCategories[category]">
+                </li>
+              </ul>
+            </div>
+  
+            <!-- <div class="form-group">
+              <label for="categoryFilter" class="title">Features:</label>
+              <ul class="category-list">
+                <li class="category-item" *ngFor="let category of categories">
+                  <label for="{{ category }}">{{ category }}</label>
+                  <input type="checkbox" id="{{ category }}" [(ngModel)]="selectedCategories[category]">
+                </li>
+              </ul>
+            </div> -->
+                
+      
+            <div class="form-group price-range">
+              <label for="priceRange" class="title">Price:</label>
+              <input type="range" class="form-control-range" id="priceRange" min="0" max="1000" step="10" [(ngModel)]="selectedPrice">
+              <div class="price-label">
+                <span>0</span>
+                <span>{{ selectedPrice }} đ</span>
+                <span>1000</span>
+              </div>
+              <div class="droplet-container">
+                <div class="droplet" [style.left.px]="(selectedPrice / 1000) * 100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-9 align-items-center">
+          <div  class="product-list" [ngClass]="getProductListClass()">
+            <div class="card"  *ngFor="let product of getProductsForCurrentPage(); let i = index" id="product-{{ (currentPage - 1) * productsPerPage + i }}" (mouseenter)="showAddToCart(i)" (mouseleave)="hideAddToCart()">
+              <div class="card-image">
+                <img src="{{ product.images[0] }}" alt="{{ product.name }}">
+                <div class="overlay-container">
+                    <div class="heart-icon" *ngIf="hoverIndex === i">
+                        <img class="cart-icon" src="assets/images/heart.png" alt="Cart">
+                      </div>
+                  <div class="overlay" *ngIf="hoverIndex === i">
+                    <a href="#" class="text"><span>ADD TO CART</span></a>
+                    <img class="cart-icon" src="assets/images/cart-o.png" alt="Cart">
+                  </div>
+                  <div class="overlay" *ngIf="hoverIndex === i" (click)="goToProductDetail(product)">
+                    <span class="text">DETAIL</span>
+                    <img class="cart-icon" src="assets/images/eye.png" alt="Detail">
+                  </div>
+                </div>
+                <div class="card-info">
+                  <h3 class="card-title">{{ product.title }}</h3>
+                  <hr/>
+                  <p class="card-price">{{ product.price }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pagination">
+            <button (click)="goToPreviousPage()">&lt;</button>
+            <button *ngFor="let page of totalPagesArray" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+            <button (click)="goToNextPage()">&gt;</button>
+          </div>
+        </div>
+    </div>
+  </div>
+    
+  
