@@ -2,18 +2,18 @@ import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cart-sidebar',
-  templateUrl: './cart-sidebar.component.html',
-  styleUrls: ['./cart-sidebar.component.css']
+  selector: 'app-favorites-sidebar',
+  templateUrl: './favorites-sidebar.component.html',
+  styleUrls: ['./favorites-sidebar.component.css']
 })
-export class CartSidebarComponent {
+export class FavoritesSidebarComponent {
   @Input() isOpen: boolean = false;
   @Output() closeSidebar: EventEmitter<any> = new EventEmitter();
 
   products: any[] = [];
 
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   showDeletePopup: boolean = false;
   showAddToCartButton: boolean = false;
@@ -23,16 +23,20 @@ export class CartSidebarComponent {
     this.closeSidebar.emit();
   }
 
+  ngOnInit(): void {
+    this.getFavoritesFromLocalStorage();
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['isOpen'] && changes['isOpen'].currentValue === true) {
-      this.getCartFromLocalStorage();
+      this.getFavoritesFromLocalStorage();
     }
   }
 
-  getCartFromLocalStorage(): void {
-    const cartString = localStorage.getItem('cart');
-    if (cartString) {
-      this.products = JSON.parse(cartString);
+  getFavoritesFromLocalStorage(): void {
+    const favoritesString = localStorage.getItem('favorites');
+    if (favoritesString) {
+      this.products = JSON.parse(favoritesString);
     } else {
       this.products = [];
     }
@@ -45,7 +49,7 @@ export class CartSidebarComponent {
       this.selectedProductId = id;
     }
   }
-  
+
 
   // Hàm xử lý khi bấm vào chữ "Delete" trong khung chữ nhật
   onDeleteProduct(): void {
@@ -59,11 +63,18 @@ export class CartSidebarComponent {
       // Sau khi xóa xong, ẩn khung chữ nhật và reset selectedProductId
       this.showDeletePopup = false;
       this.selectedProductId = null;
+
+      // Cập nhật dữ liệu yêu thích mới vào localStorage
+      this.updateFavoritesToLocalStorage();
     }
   }
 
+  updateFavoritesToLocalStorage(): void {
+    localStorage.setItem('favorites', JSON.stringify(this.products));
+  }
+
   onDeleteAll(): void {
-    localStorage.setItem('cart', JSON.stringify([]));
+    localStorage.setItem('favorites', JSON.stringify([]));
     this.products = [];
   }
 
@@ -72,7 +83,7 @@ export class CartSidebarComponent {
     this.showDeletePopup = false;
     this.selectedProductId = null;
   }
-  
+
   hoverProductId: number | null = null;
   // Hiển thị button "Add to cart" khi chuột di vào card sản phẩm
   onMouseEnter(id: number): void {
@@ -80,13 +91,13 @@ export class CartSidebarComponent {
     this.showAddToCartButton = true;
   }
 
-// Ẩn button "Add to cart" khi chuột không còn di vào card sản phẩm
+  // Ẩn button "Add to cart" khi chuột không còn di vào card sản phẩm
   onMouseLeave(): void {
     this.hoverProductId = null;
     this.showAddToCartButton = false;
   }
 
   goToProductDetail(product: any): void {
-    this.router.navigateByUrl('/cart');
+    this.router.navigateByUrl('/favorites');
   }
 }
