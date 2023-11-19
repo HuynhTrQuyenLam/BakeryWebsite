@@ -1,0 +1,22 @@
+<app-header *ngIf="!isLoginRoute && !isRegisterRoute"></app-header>
+<app-banner *ngIf="!isLoginRoute && !isRegisterRoute"></app-banner>
+<router-outlet *ngIf="!isLoginRoute && !isRegisterRoute"></router-outlet>
+<app-footer *ngIf="!isLoginRoute && !isRegisterRoute"></app-footer>
+<app-login *ngIf="isLoginRoute"></app-login>
+<app-register *ngIf="isRegisterRoute"></app-register>
+
+
+<div class="cart-rectangle" (click)="openCartSidebar()" *ngIf="!isLoginRoute && !isRegisterRoute">
+    <span class="cart-text">CART</span>
+    <img src="assets/images/shopping.png" alt="Cart Icon" class="cart-icon">
+  </div>
+
+
+<div class="wishlist-rectangle" (click)="openFaSidebar()" *ngIf="!isLoginRoute && !isRegisterRoute">
+    <span class="wishlist-text">FAVORITES</span>
+    <img src="assets/images/love.png" alt="Cart Icon" class="wishlist-icon">
+  </div>
+
+  <app-cart-sidebar [isOpen]="isCartSidebarOpen" (closeSidebar)="closeSidebar()"></app-cart-sidebar>
+  <app-favorites-sidebar [isOpen]="isFaSidebarOpen" (closeSidebar)="closeSidebar()"></app-favorites-sidebar>
+  <div *ngIf="isCartSidebarOpen || isFaSidebarOpen" class="overlay" (click)="closeSidebar()"></div>

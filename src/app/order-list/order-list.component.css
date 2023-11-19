@@ -1,0 +1,65 @@
+.container {
+  padding: 30px 20px;
+}
+
+.order-title {
+  text-align: center;
+  font-size: 50px;
+  color: #000;
+  margin: 10px 0 40px 0;
+
+}
+
+.order-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .order-card {
+    flex-basis: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .order-card .order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-self: center;
+  }
+  
+  .order-card .order-date {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  hr {
+    margin: 0;
+  }
+  
+  .order-card .order-details p {
+    margin-bottom: 5px;
+  }
+  
+  .order-card .order-footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    padding-bottom: 5px;
+  }
+  
+  .order-card .detail {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .delivered {
+    color: rgb(0, 156, 49);
+    font-size: 16px;
+    margin: 0;
+  }
+  

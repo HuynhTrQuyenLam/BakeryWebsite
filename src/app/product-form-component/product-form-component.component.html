@@ -1,0 +1,38 @@
+<div class="product-form-container">
+    <h2>Add New Product</h2>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select id="category" [(ngModel)]="category">
+        <option value="PETIT">PETIT</option>
+        <option value="SIGNATURE CAKES">SIGNATURE CAKES</option>
+        <option value="BREAD & PASTRIES">BREAD & PASTRIES</option>
+        <option value="CUPCAKES">CUPCAKES</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" [(ngModel)]="title" placeholder="Product Title">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" id="price" [(ngModel)]="price" placeholder="Product Price">
+    </div>
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <input type="text" id="rating" [(ngModel)]="rating" placeholder="Product Rating">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" [(ngModel)]="description" placeholder="Product Description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="ingredients">Ingredients</label>
+      <textarea id="ingredients" [(ngModel)]="ingredients" placeholder="Product Ingredients"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" id="image" (change)="onImageSelected($event)">
+    </div>
+    <button (click)="saveProduct()">Save Product</button>
+  </div>
+  
