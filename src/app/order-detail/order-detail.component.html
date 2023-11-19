@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="shipping-address">
+          <h3>Shipping Address</h3>
+          <div class="row d-flex justify-content-between">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="firstName" placeholder="First name" [value]="firstName" readonly>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" id="lastName" placeholder="Last name" [value]="lastName" readonly>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" class="form-control" id="address" placeholder="Address" [value]="address" readonly>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="phone" placeholder="Phone number" [value]="phone" readonly>
+          </div>
+        </div>
+
+        <div class="delivery-method">
+            <h3>Delivery Method</h3>
+            <!-- Ví dụ -->
+            <div class="form-check">
+              <label class="form-check-label" for="shipOption">
+                <img src="assets/images/delivery.png" alt="Ship">
+                Ship
+              </label>
+            </div>
+          </div>
+  
+        <div class="delivery-method">
+            <h3 style="margin-bottom: 10px;">Payment</h3>
+            <p style="color: rgb(122, 122, 122);">All transactions are secure</p>
+            <!-- Ví dụ -->
+            <div class="form-check">
+              <label class="form-check-label" for="shipOption">
+                Cash on Delivery (COD)
+              </label>
+            </div>
+        </div>
+          
+      </div>
+  
+      <div class="col-md-5">
+        <div class="products-list">
+          <div class="product-item" *ngFor="let product of products">
+            <div class="product-image">
+              <img src="{{ product.image }}" alt="{{ product.name }}"/>
+              <div class="product-quantity-badge">
+                <span>{{ product.quantity }}</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-name">{{ product.name }}</p>
+              <p class="product-price">{{ product.price * product.quantity }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="right-column">
+            <div class="right-item">
+              <span>Subtotal:</span>
+              <span class="align-right">2400</span>
+            </div>
+            <div class="right-item">
+              <span>Shipping:</span>
+              <span class="align-right">30</span>
+            </div>
+            <div class="right-item">
+                <span>Status:</span>
+                <span class="align-right" style="color: green;">Delivered</span>
+              </div>
+            <div class="right-item">
+              <h5>TOTAL:</h5>
+              <h5 class="align-right">2430</h5>
+            </div>
+          </div>
+      </div>
+      
+    </div>
+</div>
+  
+
+
